@@ -581,6 +581,8 @@
         // Sistemi Başlat
         createMarquee();
     </script>
+
+    
 <section id="showroom" class="py-20 bg-black/60 relative overflow-hidden border-b border-white/5">
         <div class="text-center mb-16" data-aos="fade-up">
             <span class="text-red-600 text-[9px] font-bold uppercase tracking-widest mb-1 block">LOS SANTOS TUNERS</span>
@@ -590,12 +592,12 @@
         </div>
 
         <div class="max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-1 md-grid-cols-3 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 
                 <div class="showroom-card bg-neutral-900/40 border border-white/5 rounded-[2rem] p-6 cursor-pointer relative overflow-hidden transition-all duration-300" onclick="selectShowroomVehicle('asbo', this)">
-                    <div class="absolute top-4 right-6 text-[10px] font-bold text-red-600 tracking-widest uppercase">Compact Tuner</div>
+                    <div class="absolute top-4 right-6 text-[10px] font-bold text-red-600 tracking-widest uppercase">Compact</div>
                     <h4 class="text-white font-bold text-lg uppercase tracking-tight heading-font mb-1">Maxwell Asbo</h4>
-                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Platform: Opel Corsa D</span>
+                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Class: Tuner Hatchback</span>
                     <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-red-600/30 to-transparent my-6"></div>
                     <div class="text-right">
                         <span class="text-xs text-gray-400 group-hover:text-white transition">İncele <i class="fa-solid fa-arrow-right text-red-600 ml-1 text-[10px]"></i></span>
@@ -605,7 +607,7 @@
                 <div class="showroom-card bg-neutral-900/40 border border-white/5 rounded-[2rem] p-6 cursor-pointer relative overflow-hidden transition-all duration-300 active-vehicle" onclick="selectShowroomVehicle('remus', this)">
                     <div class="absolute top-4 right-6 text-[10px] font-bold text-red-600 tracking-widest uppercase">Drift King</div>
                     <h4 class="text-white font-bold text-lg uppercase tracking-tight heading-font mb-1">Annis Remus</h4>
-                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Platform: Nissan Silvia S14</span>
+                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Class: Sports Tuner</span>
                     <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-red-600/30 to-transparent my-6"></div>
                     <div class="text-right">
                         <span class="text-xs text-gray-400">İncele <i class="fa-solid fa-arrow-right text-red-600 ml-1 text-[10px]"></i></span>
@@ -615,7 +617,7 @@
                 <div class="showroom-card bg-neutral-900/40 border border-white/5 rounded-[2rem] p-6 cursor-pointer relative overflow-hidden transition-all duration-300" onclick="selectShowroomVehicle('asea', this)">
                     <div class="absolute top-4 right-6 text-[10px] font-bold text-red-600 tracking-widest uppercase">Street Custom</div>
                     <h4 class="text-white font-bold text-lg uppercase tracking-tight heading-font mb-1">Declasse Asea</h4>
-                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Platform: Hyundai Accent Blue</span>
+                    <span class="text-gray-500 text-xs uppercase tracking-wider font-light">Class: Sedan Tuner</span>
                     <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-red-600/30 to-transparent my-6"></div>
                     <div class="text-right">
                         <span class="text-xs text-gray-400">İncele <i class="fa-solid fa-arrow-right text-red-600 ml-1 text-[10px]"></i></span>
@@ -651,39 +653,39 @@
     </style>
 
     <script>
-        // Los Santos Garaj Verileri
+        // Los Santos Garaj Verileri (Saf GTA V Temalı)
         const showroomData = {
             asbo: {
                 title: "Maxwell Asbo",
-                platform: "Opel Corsa D Setup",
-                desc: "Şehir içi atikliği ve yüksek devir performansı için optimize edilmiş sokak kurulumu. Kronikleşen tüm mekanik zayıflıklar giderilerek dayanıklılık odaklı güç artışı sağlandı.",
+                platform: "Los Santos Compact Spec",
+                desc: "Mission Row ve Strawberry sokaklarında maksimum atiklik için optimize edilmiş şehir içi canavarı. Motor zayıflıkları tamamen revize edilerek yüksek devirlere dayanıklı hale getirildi.",
                 specs: [
-                    { label: "Mekanik Sorun Giderme", val: "DPF & EGR İptali / Sıfır Duman Garantisi" },
-                    { label: "Güç Seviyesi", val: "Stage 1 Performans Yazılımı (+35 HP)" },
-                    { label: "Egzoz Kurulumu", val: "Downpipe & Custom Ara Borular" },
-                    { label: "Diagnostik", val: "Gelişmiş Beyin ve Arıza Teşhisi" }
+                    { label: "Mekanik Güçlendirme", val: "Emisyon Sistemleri İptali & Sıfır Duman Garantisi" },
+                    { label: "Performans Seviyesi", val: "Stage 1 ECU Performans Map (+35 HP)" },
+                    { label: "Egzoz Kurulumu", val: "Custom Downpipe & Ara Boru İmalatı" },
+                    { label: "Sistem Teşhisi", val: "Gelişmiş Beyin ve Enjektör Diagnostik" }
                 ]
             },
             remus: {
                 title: "Annis Remus",
-                platform: "Nissan Silvia S14 Custom Build",
-                desc: "Safkan drift ve performans projesi. Şasi burulma dirençlerinden custom egzoz manifold imalatına kadar her detay Los Santos standartlarında el işçiliğiyle baştan yaratıldı.",
+                platform: "Cypress Flats Drift Spec",
+                desc: "Ls Car Meet pistlerinin tozunu yutturacak safkan drift makinesi. Şasi burulma dirençlerinden custom egzoz manifold imalatına kadar her detay el işçiliğiyle baştan yaratıldı.",
                 specs: [
-                    { label: "Motor & Güç", val: "Stage 2 Setup & Custom Map (+75 HP)" },
-                    { label: "Custom İmalat", val: "Paslanmaz Krom Egzoz Hattı & Manifold" },
-                    { label: "Şasi Güçlendirme", val: "Kule Gergileri & Custom Şasi Kaynak İşçiliği" },
-                    { label: "Ayar / Kalibrasyon", val: "Dyno Üzerinde Şeffaf Güç Testi & İnce Ayar" }
+                    { label: "Motor Kurulumu", val: "Stage 2 Custom Setup & Race Map (+75 HP)" },
+                    { label: "Custom Egzoz", val: "Paslanmaz Krom Düz Boru Hattı & Manifold" },
+                    { label: "Şasi İşçiliği", val: "Kule Gergileri & Güçlendirilmiş Custom Şasi Kaynağı" },
+                    { label: "Güç Testi", val: "Şeffaf Dyno Ölçümü & Maksimum Devir Kalibrasyonu" }
                 ]
             },
             asea: {
                 title: "Declasse Asea",
-                platform: "Hyundai Accent Blue Urban Edition",
-                desc: "Günlük sürüş konforunu bozmadan araca siber ve agresif bir karakter kazandırma projesi. Hem iç ambiyans hem de mekanik kararlılık üst seviyeye taşındı.",
+                platform: "Simeon Premium Custom Spec",
+                desc: "Los Santos caddelerinde hem konforlu gezinmek hem de siber bir yırtıcı gibi görünmek isteyenler için tasarlandı. Akıllı iç hatlar ve mekanik kararlılık en üst seviyede.",
                 specs: [
-                    { label: "İç Aydınlatma", val: "Custom Akıllı Telefon Kontrollü Ambiyans" },
-                    { label: "Siber Tasarım", val: "Dış Cephe Siber Işık Hatları & LED Dönüşümü" },
+                    { label: "İç Tasarım", val: "Telefon Kontrollü Custom Akıllı Ambiyans Aydınlatması" },
+                    { label: "Dış Aydınlatma", val: "Gövde Altı Siber Işık Hatları & Full LED Dönüşümü" },
                     { label: "Yazılım Optimizasyonu", val: "Eco-Sport Hibrit Yazılım Kurulumu" },
-                    { label: "Mekanik Bakım", val: "Ağır Mekanik Revizyon & Kusursuz Periyodik Bakım" }
+                    { label: "Genel Revizyon", val: "Ağır Mekanik Bakım & Kusursuz Periyodik Onarım" }
                 ]
             }
         };
