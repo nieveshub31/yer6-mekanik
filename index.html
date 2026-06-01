@@ -116,37 +116,24 @@
                 <span class="heading-font text-2xl font-black tracking-tighter uppercase">LS<span class="text-red-600 italic">AUTOSHOP</span></span>
             </div>
 
-            <!-- ================================================================= -->
-<!-- ÜST MENÜ SİTE SEKMELERİ VE BAŞTAKİ SİBER LOGO -->
-<!-- ================================================================= -->
-<div class="flex items-center space-x-6">
-    
-    <!-- EN BAŞA GELECEK LOGO ALANI -->
-    <div class="relative flex items-center justify-center w-8 h-8 bg-neutral-950 border border-red-600/40 rounded-xl shadow-[0_0_15px_rgba(220,38,38,0.1)]">
-        <!-- Arka plan hafif kırmızı neon ışıma -->
-        <div class="absolute inset-0 bg-red-600/5"></div>
-        <!-- Siber İkon -->
-        <i class="fa-solid fa-screwdriver-wrench text-[11px] text-red-500"></i>
-    </div>
+            <div class="hidden lg:flex items-center space-x-10 text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
+                <a href="#hizmetler" class="hover:text-red-500 transition">Atölye</a>
+                <a href="#strateji" class="hover:text-red-500 transition">Sektör</a>
+                <a href="#kadro" class="hover:text-red-500 transition">Takım</a>
+<!-- Mevcut linklerinin (Atölye, Sektör, Takım) hemen yanına yapıştır: -->
 
-    <!-- SİTE SEKMELERİ (LİNKLERİNİZ) -->
-    <div class="flex items-center space-x-5 border-l border-white/10 pl-5">
-        <!-- Mevcut sekmelerin -->
-        <a href="#atolye" class="text-gray-400 hover:text-white font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300">Atölye</a>
-        <a href="#sektor" class="text-gray-400 hover:text-white font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300">Sektör</a>
-        <a href="#takim" class="text-gray-400 hover:text-white font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300">Takım</a>
-        
-        <!-- Yeni eklediğimiz sayfa içi sekmeler -->
-        <a href="#showroom" class="text-gray-400 hover:text-white font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300">LS Showroom</a>
-        
-        <a href="#blackmarket" class="text-gray-400 hover:text-red-500 font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300 flex items-center space-x-1">
-            <span>LS Underground</span>
-            <i class="fa-solid fa-terminal text-[9px] text-red-600 animate-pulse"></i>
+<!-- 1. Showroom Linki (Tıklayınca Showroom Bölümüne Kayar) -->
+<a href="#showroom" class="text-gray-400 hover:text-white font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300">
+    LS Showroom
+</a>
+
+<!-- 2. Karaborsa Linki (Tıklayınca Gizli Pencereyi Ekranda Açar) -->
+<a href="javascript:void(0)" onclick="openBlackMarket()" class="text-gray-400 hover:text-red-500 font-bold text-xs uppercase tracking-widest heading-font transition-colors duration-300 flex items-center space-x-1">
+    <span>LS</span>
+    <!-- Küçük siber terminal simgesi -->
+    <i class="fa-solid fa-terminal text-[9px] text-red-600 animate-pulse"></i>
         </a>
-    </div>
-
-</div>
-<!-- ================================================================= -->
+            </div>
 
 <!-- ================================================================= -->
 <!-- ELİT & MİNİMALİST YEŞİL IŞIKLI TESİS AKTİF ALANI -->
