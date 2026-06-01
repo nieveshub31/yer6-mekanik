@@ -416,7 +416,7 @@
         </div>
     </section>
     
-    <!-- MÜŞTERİ YORUMLARI SEKMESİ (SONSUZ SOLA KAYAN MARQUEE) -->
+   <!-- MÜŞTERİ YORUMLARI SEKMESİ (KENDİNDEN ANİMASYONLU SIKILAŞTIRILMIŞ SÜRÜM) -->
     <section id="yorumlar" class="py-20 bg-black/40 relative overflow-hidden border-t border-b border-white/5">
         <div class="text-center mb-12" data-aos="fade-up">
             <span class="text-red-600 text-[9px] font-bold uppercase tracking-widest mb-1 block">FEEDBACK</span>
@@ -424,13 +424,14 @@
             <div class="w-8 h-0.5 bg-red-600 mx-auto mt-3"></div>
         </div>
 
-        <!-- Kayma Alanını Tutan Ana Kapsayıcı -->
-        <div class="flex overflow-hidden select-none marquee-container">
-            <!-- 1. YORUM GRUBU -->
-            <div class="flex flex-nowrap space-x-6 min-w-full marquee-content">
+        <!-- Kayma Alanı (Boşluklar daraltıldı: gap-3) -->
+        <div class="flex overflow-hidden select-none relative w-full gap-3">
+            
+            <!-- 1. YORUM GRUBU (Sola Kayma Akışı - Tıklayınca Büyür) -->
+            <div class="flex flex-nowrap gap-3 min-w-full shrink-0 animate-[kaydirSola_30s_linear_infinite]">
                 
                 <!-- Yorum 1 -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -442,7 +443,7 @@
                 </div>
 
                 <!-- Yorum 2 -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -454,7 +455,7 @@
                 </div>
 
                 <!-- Yorum 3 -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -466,7 +467,7 @@
                 </div>
 
                 <!-- Yorum 4 -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -479,10 +480,10 @@
 
             </div>
 
-            <!-- 2. GRUP (Sonsuz döngü illüzyonu için ilk grubun birebir kopyası - SİLME) -->
-            <div class="flex flex-nowrap space-x-6 min-w-full marquee-content" aria-hidden="true">
+            <!-- 2. YORUM GRUBU (Sonsuz Döngü İllüzyonu İçin Kopya) -->
+            <div class="flex flex-nowrap gap-3 min-w-full shrink-0 animate-[kaydirSola_30s_linear_infinite]" aria-hidden="true">
                 <!-- Yorum 1 Kopya -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -493,7 +494,7 @@
                     </div>
                 </div>
                 <!-- Yorum 2 Kopya -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -504,7 +505,7 @@
                     </div>
                 </div>
                 <!-- Yorum 3 Kopya -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -515,7 +516,7 @@
                     </div>
                 </div>
                 <!-- Yorum 4 Kopya -->
-                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                <div class="w-[360px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative transition duration-300 active:scale-105 active:border-red-600/60 active:shadow-[0_0_20px_rgba(220,38,38,0.2)]">
                     <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -526,8 +527,17 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
+
+    <!-- Tarayıcıya Kaydırma Animasyonunu Tanıtan CSS (HTML'e Gömülü) -->
+    <style>
+        @keyframes kaydirSola {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
     
     <section id="galeri" class="py-32 bg-[#020202]">
         <div class="max-w-7xl mx-auto px-6">
