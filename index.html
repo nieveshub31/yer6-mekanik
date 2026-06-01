@@ -123,13 +123,151 @@
                 <a href="#galeri" class="hover:text-red-500 transition">Projeler</a>
             </div>
 
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full">
-                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
-                    <span class="text-[9px] font-black uppercase text-gray-300">Tesis Aktif</span>
-                </div>
-            </div>
-        </div>
+            <!-- ================================================================= -->
+<!-- TEMA DEĞİŞTİRİCİSİ ENTEGRELİ TESİS DURUM ALANI -->
+<!-- ================================================================= -->
+<div class="flex items-center space-x-4">
+    
+    <!-- Mevcut Tesis Aktif Göstergesi -->
+    <div class="flex items-center space-x-2 bg-neutral-950/50 dark-mode-border border border-red-600/20 px-3 py-1.5 rounded-xl">
+        <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+        </span>
+        <span class="text-white text-[10px] font-bold uppercase tracking-widest heading-font">TESİS AKTİF</span>
+    </div>
+
+    <!-- SİBER TEMA DEĞİŞTİRİCİ BUTON -->
+    <button onclick="toggleCyberTheme()" id="themeToggleBtn" class="relative inline-flex items-center justify-center w-9 h-9 bg-neutral-950/80 border border-red-600/30 hover:border-red-600 rounded-xl transition-all duration-300 shadow-[0_0_10px_rgba(220,38,38,0.05)] text-red-500 hover:text-red-400" title="Siber Laboratuvar Modu">
+        <i id="themeIcon" class="fa-solid fa-sun text-xs transition-transform duration-300"></i>
+    </button>
+
+</div>
+
+<!-- 
+    BU BUTONA ÖZEL GÖMÜLÜ TEMA MOTORU (CSS & JS)
+    Ayrı dosyalara bölmeden, direkt buraya gömülü kalması için tek parça yapıldı.
+-->
+<style>
+    /* Tüm sitede renklerin pürüzsüzce akması için geçiş yumuşatıcı */
+    body, section, div, h3, h4, p, span, .showroom-card, .bm-popup-card, .marquee-card, button, input {
+        transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease !important;
+    }
+
+    /* -----------------------------------------------------------------
+       LABORATUVAR MODU (BEYAZ TEMA) AKTİFKEN UYGULANACAK SİBER KURALLAR
+    ----------------------------------------------------------------- */
+    body.light-mode {
+        background-color: #fcfcfc !important;
+        color: #111111 !important;
+    }
+
+    /* Ana Bölümlerin Arka Planlarını Beyaza Çekme */
+    body.light-mode section,
+    body.light-mode #showroom,
+    body.light-mode #blackmarket,
+    body.light-mode #yorumlar {
+        background-color: #ffffff !important;
+        border-color: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Koyu Saydam Katmanları Soft Griye Çevirme */
+    body.light-mode .bg-black\/40,
+    body.light-mode .bg-black\/50,
+    body.light-mode .bg-black\/60,
+    body.light-mode .bg-neutral-950\/80,
+    body.light-mode .bg-neutral-950\/50 {
+        background-color: #f3f4f6 !important;
+    }
+
+    /* Başlıklar ve Beyaz Yazılar -> Net Siyah */
+    body.light-mode h3,
+    body.light-mode h4,
+    body.light-mode .text-white,
+    body.light-mode .heading-font {
+        color: #0f1115 !important;
+    }
+
+    /* Gri Alt Metinler -> Okunabilir Koyu Gri */
+    body.light-mode p,
+    body.light-mode .text-gray-300,
+    body.light-mode .text-gray-400 {
+        color: #374151 !important;
+    }
+
+    body.light-mode .text-gray-500 {
+        color: #6b7280 !important;
+    }
+
+    /* Kartların Beyaz Düzen Tasarımı */
+    body.light-mode .showroom-card,
+    body.light-mode .marquee-card,
+    body.light-mode .bm-popup-card,
+    body.light-mode .spec-item {
+        background-color: #ffffff !important;
+        border-color: rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* Üzerine Gelindiğinde Hafif Siber Kırmızı Parlama */
+    body.light-mode .showroom-card:hover,
+    body.light-mode .marquee-card:hover,
+    body.light-mode .bm-popup-card:hover {
+        border-color: #dc2626 !important;
+        box-shadow: 0 10px 25px rgba(220, 38, 38, 0.06) !important;
+    }
+
+    /* Aktif Showroom Aracı */
+    body.light-mode .active-vehicle {
+        border-color: #dc2626 !important;
+        background-color: rgba(220, 38, 38, 0.01) !important;
+        box-shadow: 0 10px 25px rgba(220, 38, 38, 0.1) !important;
+    }
+
+    /* Açılır Detay Panelleri ve Modallar */
+    body.light-mode #showroomDetails,
+    body.light-mode #modalCard,
+    body.light-mode #bmModalCard {
+        background-color: #ffffff !important;
+        border-color: rgba(220, 38, 38, 0.25) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Butonun Beyaz Temadaki Sınır Çizgisi */
+    body.light-mode #themeToggleBtn {
+        background-color: #ffffff !important;
+        border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    body.light-mode #themeToggleBtn:hover {
+        border-color: #dc2626 !important;
+    }
+</style>
+
+<script>
+    function toggleCyberTheme() {
+        const body = document.body;
+        const icon = document.getElementById('themeIcon');
+        const btn = document.getElementById('themeToggleBtn');
+
+        // Sınıfı tetikle
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('light-mode')) {
+            // Beyaz temaya geçildiğinde simge Ay (Gece Moduna dönüş butonu) olur
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            icon.style.transform = 'rotate(360deg)';
+            btn.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+        } else {
+            // Karanlık temaya dönüldüğünde simge Güneş olur
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            icon.style.transform = 'rotate(0deg)';
+            btn.style.boxShadow = '0 0 15px rgba(220, 38, 38, 0.05)';
+        }
+    }
+</script>
+<!-- ================================================================= -->
     </nav>
 
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
