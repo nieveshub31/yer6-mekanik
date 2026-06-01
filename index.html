@@ -10,6 +10,29 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+/* --- GÜNCELLENMİŞ SONSUZ MARQUEE (KAYAN YORUMLAR) CSS --- */
+.marquee-container {
+    display: flex;
+    gap: 0.75rem !important; /* Kartların arasındaki boşluk daraltıldı (12px) */
+}
+
+.marquee-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.75rem !important; /* Kartların arasındaki boşluk daraltıldı (12px) */
+    animation: kaydirSola 30s linear infinite;
+}
+
+/* Üstüne gelince durma kodu kaldırıldı! Akış kesintisiz devam eder. */
+
+/* Tıklayınca (active durumunda) kartın hafifçe büyümesi ve parlaması efekti */
+.marquee-content > div:active {
+    transform: scale(1.05);
+    border-color: rgba(220, 38, 38, 0.6) !important; /* Kırmızı neon sınır belirginleşir */
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+    z-index: 50;
+}
+        
         :root { --accent: #ff0000; --bg: #050505; --card: #0c0c0c; --border: #1a1a1a; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: #fff; overflow-x: hidden; }
         .heading-font { font-family: 'Space Grotesk', sans-serif; }
@@ -411,6 +434,119 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+    
+    <!-- MÜŞTERİ YORUMLARI SEKMESİ (SONSUZ SOLA KAYAN MARQUEE) -->
+    <section id="yorumlar" class="py-20 bg-black/40 relative overflow-hidden border-t border-b border-white/5">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <span class="text-red-600 text-[9px] font-bold uppercase tracking-widest mb-1 block">FEEDBACK</span>
+            <h3 class="heading-font text-2xl font-bold text-white uppercase tracking-tight">Müşteri <span class="text-red-600 italic">Deneyimleri</span></h3>
+            <div class="w-8 h-0.5 bg-red-600 mx-auto mt-3"></div>
+        </div>
+
+        <!-- Kayma Alanını Tutan Ana Kapsayıcı -->
+        <div class="flex overflow-hidden select-none marquee-container">
+            <!-- 1. YORUM GRUBU -->
+            <div class="flex flex-nowrap space-x-6 min-w-full marquee-content">
+                
+                <!-- Yorum 1 -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Corsa D aracımın çözülemeyen DPF ve duman sorununu Baş Usta tek seferde nokta atışı çözdü. Gerçekten profesyonel mekanik."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Anıl Yılmaz</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Opel Corsa D</span>
+                    </div>
+                </div>
+
+                <!-- Yorum 2 -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Silvia S14 projemiz için custom egzoz ve şasi güçlendirme yaptırdık. Kaynak işçiliği ve custom imalat kalitesi muazzam."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Berkcan K.</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Nissan Silvia S14</span>
+                    </div>
+                </div>
+
+                <!-- Yorum 3 -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Araca yaptıkları custom iç ambiyans aydınlatması ve siber hatlar tek kelimeyle kusursuz oldu. Gece sürüşleri artık çok daha keyifli."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Ufuk T.</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Accent Blue</span>
+                    </div>
+                </div>
+
+                <!-- Yorum 4 -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Yazılım ve Stage 2 yüklemesinden sonra araba resmen canavara dönüştü. Dyno testindeki şeffaflıkları ve ilgileri için Tuner ekibine teşekkürler."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Murat Demir</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Stage 2 Setup</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 2. GRUP (Sonsuz döngü illüzyonu için ilk grubun birebir kopyası - SİLME) -->
+            <div class="flex flex-nowrap space-x-6 min-w-full marquee-content" aria-hidden="true">
+                <!-- Yorum 1 Kopya -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Corsa D aracımın çözülemeyen DPF ve duman sorununu Baş Usta tek seferde nokta atışı çözdü. Gerçekten profesyonel mekanik."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Anıl Yılmaz</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Opel Corsa D</span>
+                    </div>
+                </div>
+                <!-- Yorum 2 Kopya -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Silvia S14 projemiz için custom egzoz ve şasi güçlendirme yaptırdık. Kaynak işçiliği ve custom imalat kalitesi muazzam."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Berkcan K.</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Nissan Silvia S14</span>
+                    </div>
+                </div>
+                <!-- Yorum 3 Kopya -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Araca yaptıkları custom iç ambiyans aydınlatması ve siber hatlar tek kelimeyle kusursuz oldu. Gece sürüşleri artık çok daha keyifli."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Ufuk T.</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Accent Blue</span>
+                    </div>
+                </div>
+                <!-- Yorum 4 Kopya -->
+                <div class="w-[380px] shrink-0 bg-neutral-900/60 border border-white/5 rounded-3xl p-6 relative group hover:border-red-600/30 transition duration-300">
+                    <div class="flex items-center space-x-1 text-red-500 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed mb-4">"Yazılım ve Stage 2 yüklemesinden sonra araba resmen canavara dönüştü. Dyno testindeki şeffaflıkları ve ilgileri için Tuner ekibine teşekkürler."</p>
+                    <div class="border-t border-white/5 pt-3 flex items-center justify-between">
+                        <span class="text-white font-bold text-xs uppercase tracking-wider">Murat Demir</span>
+                        <span class="text-gray-600 text-[10px] uppercase">Stage 2 Setup</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
