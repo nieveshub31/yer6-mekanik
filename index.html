@@ -293,72 +293,49 @@
     
 
 <!-- ================================================================= -->
-<!-- LS AUTOSHOP PERFORMANS TEMALI MİZAH PANELİ (REDLINE SÜRÜMÜ) -->
+<!-- LS AUTOSHOP PERFORMANS TEMALI - TEK PARÇA MİZAH PANELİ -->
 <!-- ================================================================= -->
-<div class="relative bg-zinc-950 border border-red-900/40 p-8 rounded-xl shadow-[0_0_35px_rgba(239,68,68,0.07)] overflow-hidden font-sans select-none">
+<div class="relative bg-zinc-950 border-2 border-red-900/50 p-8 rounded-xl shadow-[0_0_35px_rgba(239,68,68,0.1)] font-sans select-none">
     
-    <!-- Arka Plan Hafif Kırmızı Performans Işığı -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,68,68,0.04),transparent_50%)] pointer-events-none"></div>
-
-    <!-- Üst Başlık Şeridi -->
-    <div class="flex justify-between items-center border-b border-zinc-900 pb-4 mb-5 text-[11px] text-red-500/80 font-bold tracking-wider uppercase">
+    <!-- Üst Başlık ve Durum Şeridi -->
+    <div class="flex justify-between items-center border-b border-zinc-900 pb-4 mb-6 text-[12px] text-red-500 font-black tracking-widest uppercase">
         <span class="flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
-            <span class="text-zinc-400">Kadro Durum Raporu // Güncelleme</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+            <span class="text-zinc-400">ACİL DURUM GÜNCELLEMESİ // GRUP RAPORU</span>
         </span>
-        <span class="bg-red-950/40 text-red-400 px-3 py-0.5 rounded border border-red-800/40 font-black text-[10px]">SAHTE ALARM</span>
+        <span class="bg-red-950/60 text-red-400 px-3 py-1 rounded border border-red-800/50 text-[11px]">SAHTE ALARM</span>
     </div>
 
-    <!-- HİKAYE VE YAZI ALANLARI -->
-    <div class="space-y-5">
+    <!-- İÇERİK ALANI: TEK PARÇA, BÜYÜK PUNTOLU VE NET -->
+    <div class="flex flex-col md:flex-row items-center md:items-start space-y-5 md:space-y-0 md:space-x-6">
         
-        <!-- GENEL DURUM (CENAZE İPTAL) -->
-        <div class="flex items-start space-x-4 bg-zinc-900/20 p-5 rounded-lg border border-zinc-900/80 transition-all hover:border-red-900/20">
-            <span class="text-3xl flex-shrink-0 mt-0.5">🤦‍♂️</span>
-            <div class="flex-1">
-                <div class="flex justify-between text-[11px] font-black text-red-500 mb-1 tracking-wide">
-                    <span>KONU: BÜYÜK YANLIŞ ANLAŞILMA</span>
-                    <span class="text-zinc-600 font-medium">Dün Gece</span>
-                </div>
-                <p class="text-zinc-300 text-base leading-relaxed font-bold">
-                    <span class="text-zinc-100 font-black">Beyler acil toplanın:</span> Dün gece panikle kurduğumuz anı köşesini apar topar kaldırıyoruz çünkü <span class="text-red-500 font-black">eleman sapasağlam çıktı!</span> Tamamen bir kulaktan kulağa dedikodu kurbanı olmuşuz. Telefonu kapalı olunca herkes en kötüsünü düşünmüş ama meğer sadece derin bir uykuya dalmış, hiçbir şeyden haberi yok. Cenaze protokolü iptal, herkes rahat bir nefes alsın!
-                </p>
-            </div>
+        <!-- Sol Taraf Büyük İnsani Emoji -->
+        <div class="w-20 h-20 bg-zinc-900 border border-red-900/60 rounded-xl flex items-center justify-center text-4xl flex-shrink-0 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+            🤦‍♂️
         </div>
 
-        <!-- HELVA MEVZUSU KUTUSU -->
-        <div class="flex items-start space-x-4 bg-zinc-900/20 p-5 rounded-lg border border-zinc-900/80 transition-all hover:border-red-900/20">
-            <span class="text-3xl flex-shrink-0 mt-0.5">💸</span>
-            <div class="flex-1">
-                <div class="flex justify-between text-[11px] font-black text-red-500 mb-1 tracking-wide">
-                    <span>KONU: HELVA FONU İADESİ</span>
-                    <span class="text-zinc-600 font-medium">Şimdi</span>
-                </div>
-                <p class="text-zinc-300 text-base leading-relaxed font-bold">
-                    <span class="text-zinc-100 font-black">Helva Paraları Ne Oldu?</span> Aramızda toplayıp fıstıklı helva siparişi verdiğimiz paraların üstüne yattık sanmayın. Madem eleman ölmedi, biz de o parayla ekibe akşam dev bir yemek ısmarlıyoruz. Kendisi de canlı canlı aramızda oturup kendi gıyabında toplanan paraları yiyecek, cezası kesildi!
-                </p>
-            </div>
-        </div>
-
-        <!-- EKİP RUHU KUTUSU -->
-        <div class="flex items-start space-x-4 bg-zinc-900/20 p-5 rounded-lg border border-zinc-900/80 transition-all hover:border-red-900/20">
-            <span class="text-3xl flex-shrink-0 mt-0.5">☕</span>
-            <div class="flex-1">
-                <div class="flex justify-between text-[11px] font-black text-red-500 mb-1 tracking-wide">
-                    <span>KONU: TAKIM DURUMU</span>
-                    <span class="text-zinc-600 font-medium">Sonuç</span>
-                </div>
-                <p class="text-zinc-300 text-base leading-relaxed font-bold">
-                    <span class="text-zinc-100 font-black">Özetle;</span> Ekipte fire yok, kadro eksiksiz tam gaz devam ediyor. Bu olay da bize grubun birbirine ne kadar bağlı olduğunu gösterdi (biraz erken gömmüş olsak da). Herkes işinin gücünün başına dönsün, makaramıza kaldığımız yerden devam ediyoruz!
-                </p>
-            </div>
+        <!-- Yazı Alanı -->
+        <div class="flex-1 text-center md:text-left">
+            <!-- Büyük Başlık -->
+            <h3 class="text-red-500 font-black text-2xl tracking-wider uppercase mb-4">
+                BEYLER ACİL TOPLANIN: CENAZE PROTOKOLÜ İPTAL!
+            </h3>
+            
+            <!-- İstediğin Gibi İyice Büyütülmüş (text-lg), Kalın ve Akıcı İnsancıl Metin -->
+            <p class="text-zinc-300 text-lg leading-relaxed font-bold space-y-4">
+                Dün gece panikle kurduğumuz o anı köşesini apar topar söküp kaldırıyoruz çünkü <span class="text-white font-black underline decoration-red-600 decoration-2 text-xl">eleman sapasağlam çıktı!</span> tamamen kulaktan kulağa yayılan bir sanayi/grup dedikodusunun kurbanı olmuşuz. Telefonu kapalı olunca herkes en kötüsünü düşünmüş ama meğer sadece derin bir uykuya dalmış, dünyadan haberi yok. 
+                <br><br>
+                Aramızda toplayıp fıstıklı helva siparişi verdiğimiz paraların üstüne yattık sanmayın; madem kendisi yaşıyor, o parayla ekibe akşam dev bir yemek ısmarlıyoruz. Kendisi de canlı canlı aramızda oturup kendi gıyabında toplanan paraları yiyecek, cezası kesildi! 
+                <br><br>
+                Özetle ekipte fire yok, kadro eksiksiz tam gaz devam ediyor. Herkes işinin gücünün başına dönsün, makaramıza kaldığımız yerden devam ediyoruz!
+            </p>
         </div>
 
     </div>
 
-    <!-- Alt Kapanış Satırı -->
-    <div class="mt-5 pt-4 border-t border-zinc-900 flex justify-between text-[11px] text-zinc-500 font-bold tracking-wide">
-        <span>Kadro Eksiksiz, Keyifler Yerinde</span>
+    <!-- Alt Kapanış Şeridi -->
+    <div class="mt-6 pt-4 border-t border-zinc-900 flex justify-between text-[11px] text-zinc-500 font-bold tracking-wider uppercase">
+        <span>Kadro Tam, Keyifler Yerinde</span>
         <span class="text-red-600/80 font-black">REDLINE // ACTIVE</span>
     </div>
 </div>
