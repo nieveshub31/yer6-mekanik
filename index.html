@@ -1150,29 +1150,23 @@
 <!-- GELİŞMİŞ BAĞIMSIZ SOL ÜST SİBER YOUTUBE MUSIC PLAYER -->
 <!-- ================================================================= -->
 <div id="siber-player" class="fixed top-4 left-4 z-[9999] select-none pointer-events-auto">
-    <div class="flex items-center space-x-3 bg-neutral-950/95 border border-red-600/30 px-3 py-2 rounded-xl shadow-[0_0_25px_rgba(220,38,38,0.25)] backdrop-blur-md">
+    <div class="flex items-center space-x-3 bg-neutral-950/95 border border-red-600/30 px-4 py-2 rounded-xl shadow-[0_0_25px_rgba(220,38,38,0.25)] backdrop-blur-md">
         
         <div id="yt-placeholder" class="hidden"></div>
 
-        <div class="flex items-center space-x-1.5">
-            
-            <button id="volDownBtn" class="w-6 h-6 rounded-md bg-neutral-900 border border-white/5 text-gray-400 hover:text-white hover:border-white/20 flex items-center justify-center text-[9px] cursor-pointer transition-all" title="Sesi Kıs">
-                <i class="fa-solid fa-volume-minus"></i>
-            </button>
+        <button id="musicToggleBtn" class="w-8 h-8 rounded-lg bg-red-600 text-white shadow-[0_0_10px_rgba(220,38,38,0.4)] flex items-center justify-center hover:bg-red-700 text-[11px] cursor-pointer transition-all flex-shrink-0" title="Oynat/Durdur">
+            <span id="musicIcon">⏸</span>
+        </button>
 
-            <button id="musicToggleBtn" class="w-8 h-8 rounded-lg bg-red-600 text-white shadow-[0_0_10px_rgba(220,38,38,0.4)] flex items-center justify-center hover:bg-red-700 text-[11px] cursor-pointer transition-all" title="Oynat/Durdur">
-                <i id="musicIcon" class="fa-solid fa-pause"></i>
-            </button>
-
-            <button id="volUpBtn" class="w-6 h-6 rounded-md bg-neutral-900 border border-white/5 text-gray-400 hover:text-white hover:border-white/20 flex items-center justify-center text-[9px] cursor-pointer transition-all" title="Sesi Aç">
-                <i class="fa-solid fa-volume-plus"></i>
-            </button>
-            
+        <div class="flex items-center space-x-2 bg-black/40 border border-white/5 px-2.5 py-1 rounded-md">
+            <span class="text-[10px] opacity-60">🔈</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" class="w-16 h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-red-600 focus:outline-none transition-all">
+            <span class="text-[10px] opacity-60">🔊</span>
         </div>
 
-        <div class="h-6 w-[1px] bg-white/10 mx-0.5"></div>
+        <div class="h-6 w-[1px] bg-white/10 flex-shrink-0"></div>
 
-        <div class="flex flex-col justify-center w-28 overflow-hidden">
+        <div class="flex flex-col justify-center w-28 overflow-hidden flex-shrink-0">
             <span id="audioStatusText" class="text-red-600 text-[7px] font-mono font-black tracking-widest block leading-none mb-0.5">LIVE AUDIO // VOL 50%</span>
             <div class="w-full overflow-hidden whitespace-nowrap relative">
                 <span id="trackName" class="inline-block text-[10px] text-gray-400 font-medium heading-font tracking-wide animate-[playerMarquee_12s_linear_infinite]">
@@ -1181,7 +1175,7 @@
             </div>
         </div>
 
-        <div class="flex items-center space-x-0.5 h-3 px-1">
+        <div class="flex items-center space-x-0.5 h-3 px-1 flex-shrink-0">
             <span class="audio-bar w-0.5 h-1 bg-red-600 rounded-full transition-all duration-300 animate-pulse"></span>
             <span class="audio-bar w-0.5 h-2 bg-red-500 rounded-full transition-all duration-300 animate-pulse[animation-delay:0.2s]"></span>
             <span class="audio-bar w-0.5 h-1.5 bg-red-600 rounded-full transition-all duration-300 animate-pulse[animation-delay:0.4s]"></span>
@@ -1194,6 +1188,22 @@
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
     }
+    
+    /* Kaydırıcı çubuğun siber temaya uyumu için özel CSS dokunuşları */
+    #volumeSlider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #dc2626;
+        cursor: pointer;
+        box-shadow: 0 0 8px #dc2626;
+        transition: transform 0.1s;
+    }
+    #volumeSlider::-webkit-slider-thumb:hover {
+        transform: scale(1.3);
+    }
 </style>
 
 <script>
@@ -1203,7 +1213,6 @@
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     var player;
-    var currentVolume = 50; // İlk giriş ses seviyesi %50
     
     // 🛠️ BURADAKİ VIDEO ID'SİNİ KENDİ ŞARKININ LİNKİNDEKİ ID İLE DEĞİŞTİR KNK
     var youtubeVideoId = "KGeY5ZW42-M"; 
@@ -1228,7 +1237,9 @@
     }
 
     function onPlayerReady(event) {
-        player.setVolume(currentVolume);
+        // İlk açılışta çubuğun değeri neyse (%50) sesi oraya setliyoruz
+        const initialVol = document.getElementById('volumeSlider').value;
+        player.setVolume(initialVol);
         
         // Tarayıcı engelini aşmak için site içi ilk etkileşimde ses canlanır
         document.addEventListener('click', autoPlaySetup, { once: true });
@@ -1244,8 +1255,7 @@
 
     const toggleBtn = document.getElementById('musicToggleBtn');
     const musicIcon = document.getElementById('musicIcon');
-    const volUpBtn = document.getElementById('volUpBtn');
-    const volDownBtn = document.getElementById('volDownBtn');
+    const volumeSlider = document.getElementById('volumeSlider');
     const statusText = document.getElementById('audioStatusText');
     const bars = document.querySelectorAll('.audio-bar');
 
@@ -1265,41 +1275,33 @@
         });
     }
 
-    // SESİ AÇMA (Her basışta %10 arttırır)
-    if(volUpBtn) {
-        volUpBtn.addEventListener('click', function(e) {
+    // ⚡ CANLI KAYAR SES ÇUBUĞU MOTORU
+    if(volumeSlider) {
+        volumeSlider.addEventListener('input', function(e) {
             e.stopPropagation();
             if (!player) return;
-            if (currentVolume < 100) {
-                currentVolume += 10;
-                player.setVolume(currentVolume);
-                statusText.innerText = "LIVE AUDIO // VOL " + currentVolume + "%";
-            }
-        });
-    }
-
-    // SESİ KISMA (Her basışta %10 azaltır)
-    if(volDownBtn) {
-        volDownBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (!player) return;
-            if (currentVolume > 0) {
-                currentVolume -= 10;
-                player.setVolume(currentVolume);
-                statusText.innerText = "LIVE AUDIO // VOL " + currentVolume + "%";
+            
+            const newVolume = e.target.value;
+            player.setVolume(newVolume); // Sesi anlık değiştir
+            
+            // Üstteki dijital metni anlık güncelle
+            var playerState = player.getPlayerState();
+            if(playerState == 1) {
+                statusText.innerText = "LIVE AUDIO // VOL " + newVolume + "%";
             }
         });
     }
 
     function updateUI(isPlaying) {
+        const currentVol = volumeSlider.value;
         if(isPlaying) {
-            musicIcon.className = "fa-solid fa-pause";
-            toggleBtn.className = "w-8 h-8 rounded-lg bg-red-600 text-white shadow-[0_0_10px_rgba(220,38,38,0.4)] flex items-center justify-center hover:bg-red-700 text-[11px] cursor-pointer transition-all";
+            musicIcon.innerText = "⏸";
+            toggleBtn.className = "w-8 h-8 rounded-lg bg-red-600 text-white shadow-[0_0_10px_rgba(220,38,38,0.4)] flex items-center justify-center hover:bg-red-700 text-[11px] cursor-pointer transition-all flex-shrink-0";
             bars.forEach(bar => bar.style.display = "block");
-            statusText.innerText = "LIVE AUDIO // VOL " + currentVolume + "%";
+            statusText.innerText = "LIVE AUDIO // VOL " + currentVol + "%";
         } else {
-            musicIcon.className = "fa-solid fa-play";
-            toggleBtn.className = "w-8 h-8 rounded-lg bg-red-950/40 border border-red-600/40 flex items-center justify-center text-red-500 hover:bg-red-600 hover:text-white text-[11px] cursor-pointer transition-all";
+            musicIcon.innerText = "▶";
+            toggleBtn.className = "w-8 h-8 rounded-lg bg-red-950/40 border border-red-600/40 flex items-center justify-center text-red-500 hover:bg-red-600 hover:text-white text-[11px] cursor-pointer transition-all flex-shrink-0";
             bars.forEach(bar => bar.style.display = "none");
             statusText.innerText = "LIVE AUDIO // PAUSED";
         }
