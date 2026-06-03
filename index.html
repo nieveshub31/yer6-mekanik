@@ -1252,12 +1252,7 @@
         // Gecikmeyi önlemek için arka planda gizlice videoyu önceden yükletiyoruz (namluya sürme)
         player.playVideo();
         setTimeout(function() {
-            // Eğer kullanıcı henüz ekrana dokunmadıysa arka planda sessizce beklet
-            if(!isTriggered) {
-                player.pauseVideo();
-            }
-        }, 100);
-
+          
         // Maksimum hız için tüm tarayıcı hareket aksiyonlarını dinlemeye alıyoruz
         const events = ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'];
         events.forEach(evt => {
